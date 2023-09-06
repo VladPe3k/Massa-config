@@ -1,0 +1,57 @@
+[package]
+name = "massa_bootstrap"
+version = "0.26.0"
+authors = ["Massa Labs <info@massa.net>"]
+edition = "2021"
+
+[features]
+testing = ["massa_final_state/testing", "massa_ledger_worker/testing", "massa_consensus_exports/testing", "massa_async_pool/testing"]
+sandbox = ["massa_async_pool/sandbox", "massa_final_state/sandbox", "massa_models/sandbox"]
+
+[dependencies]
+displaydoc = {workspace = true}
+num_enum = {workspace = true}
+nom = {workspace = true}
+rand = {workspace = true}
+serde = {workspace = true, "features" = ["derive"]}
+serde_json = {workspace = true}   # BOM UPGRADE     Revert to "1.0" if problem
+humantime = {workspace = true}
+thiserror = {workspace = true}
+parking_lot = {workspace = true}
+tracing = {workspace = true}
+substruct = {workspace = true}
+socket2 = {workspace = true}
+crossbeam = {workspace = true}   # BOM UPGRADE     Revert to "0.8.2" if problem
+mio = {workspace = true, "features" = ["net", "os-poll"]}
+stream_limiter = { workspace = true }
+
+massa_consensus_exports = {workspace = true}
+massa_final_state = {workspace = true}
+massa_hash = {workspace = true}
+massa_logging = {workspace = true}
+massa_models = {workspace = true}
+massa_protocol_exports = {workspace = true}
+massa_serialization = {workspace = true}
+massa_signature = {workspace = true}
+massa_pos_exports = {workspace = true}
+massa_time = {workspace = true}
+massa_db_exports = {workspace = true}
+massa_versioning = {workspace = true}
+massa_metrics = {workspace = true}
+
+[dev-dependencies]
+mockall = {workspace = true}
+bitvec = {workspace = true, "features" = ["serde"]}
+lazy_static = {workspace = true}   # BOM UPGRADE     Revert to "1.4" if problem
+tempfile = {workspace = true}   # BOM UPGRADE     Revert to "3.3" if problem
+serial_test = {workspace = true}   # BOM UPGRADE     Revert to "2.0.0" if problem
+num = {workspace = true}
+massa_final_state = {workspace = true, "features" = ["testing"]}
+massa_async_pool = {workspace = true, "features" = ["testing"]}
+massa_ledger_exports = {workspace = true}
+massa_ledger_worker = {workspace = true, "features" = ["testing"]}
+massa_executed_ops = {workspace = true}
+massa_pos_worker = {workspace = true, "features" = ["testing"]}
+massa_pos_exports = {workspace = true, "features" = ["testing"]}
+massa_consensus_exports = {workspace = true, "features" = ["testing"]}
+massa_db_worker = {workspace = true}
